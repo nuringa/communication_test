@@ -1,16 +1,18 @@
-require_relative 'test_passage'
-require_relative 'result'
-require_relative 'file_reader'
+require_relative 'lib/test_passage'
+require_relative 'lib/result'
+require_relative 'lib/file_reader'
 
 puts 'ВАШ УРОВЕНЬ ОБЩИТЕЛЬНОСТИ'
 puts 'Тест поможет определить ваш уровень коммуникабельности.'
 puts
 puts 'Правдиво ответьте на вопросы:'
 
-test = TestPassage.new
-test.proceed_test
+test_data = FileReader.new
 
-result = Result.new
+test = TestPassage.new
+test.proceed_test(test_data.questions)
+
+result = Result.new.choose_result(test.total, test_data.results)
 puts "Результат: #{test.total} баллов."
 puts
-puts result.choose_result(test.total)
+puts result
