@@ -1,5 +1,5 @@
 class Result
-  def choose_result(total, results)
+  def self.choose_result(total, results)
     case total
     when 0..3
       results[6]

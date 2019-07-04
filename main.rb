@@ -12,7 +12,7 @@ test_data = FileReader.new
 test = TestPassage.new
 test.proceed_test(test_data.questions)
 
-result = Result.new.choose_result(test.total, test_data.results)
+result = Result.choose_result(test.total, test_data.results)
 puts "Результат: #{test.total} баллов."
 puts
 puts result
